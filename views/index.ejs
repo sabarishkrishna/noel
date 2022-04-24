@@ -1,0 +1,181 @@
+<%- include('common/header.ejs') %>
+
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="overview-wrap">
+                            <h2 class="title-1">Shared Files</h2>
+                            <button class="au-btn au-btn-icon au-btn--blue" data-toggle="modal"
+                                data-target="#largeModal">
+                                <i class="zmdi zmdi-plus"></i>import File</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive table-responsive-data2">
+                        <table class="table table-data2">
+                            <thead>
+                                <tr>
+                                    <th>file name bharath testing</th>
+                                    <th>uploded date</th>
+                                    <th>file status</th>
+                                    <th>size</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="tr-shadow">
+                                    <td><strong>chestscan.mr</strong></td>
+                                    <td>2018-09-27 02:12</td>
+                                    <td>
+                                        <span class="status--process">Accessible</span>
+                                    </td>
+                                    <td>372 kb</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                                title="Send">
+                                                <i class="zmdi zmdi-mail-send"></i>
+                                            </button>
+                                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                                title="Rename">
+                                                <i class="zmdi zmdi-edit"></i>
+                                            </button>
+                                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                                title="Delete">
+                                                <i class="zmdi zmdi-delete"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="spacer"></tr>
+                                <tr class="tr-shadow">
+                                    <td><strong>headscan.ct</strong></td>
+                                    <td>2018-09-29 05:57</td>
+                                    <td>
+                                        <span class="status--process">Accessible</span>
+                                    </td>
+                                    <td>550 kb</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                                title="Share">
+                                                <i class="zmdi zmdi-mail-send"></i>
+                                            </button>
+                                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                                title="Rename">
+                                                <i class="zmdi zmdi-edit"></i>
+                                            </button>
+                                            <button class="item" data-toggle="tooltip" data-placement="top"
+                                                title="Delete">
+                                                <i class="zmdi zmdi-delete"></i>
+                                            </button>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="spacer"></tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="copyright">
+                    <p>Copyright © 2022 By <a href="https://noeldcloud.com">NOEL-D-CLOUD</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- modal large -->
+    <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="largeModalLabel">File Upload</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-lg-12">
+                        <div class="card">                            
+                            <div class="card-body">                       
+                                <form action="/upload" method="post" enctype="multipart/form-data">
+                                    <div class="form-group">
+                                        <label for="cc-payment" class="control-label mb-1">File Name</label>
+                                        <input id="cc-pament" name="filename" type="text" class="form-control"
+                                            aria-required="true" aria-invalid="false" >
+                                    </div>
+                                    <div class="image-upload-wrap">
+                                        <input class="file-upload-input" name="filecontent" type='file' onchange="readURL(this);" accept="image/*" />
+                                        <div class="drag-text">
+                                          <h3>Drag and drop a file or click here</h3>
+                                        </div>
+                                      </div>
+                                      <div class="file-upload-content">
+                                        <img class="file-upload-image" src="#" alt="your image" />
+                                        <div class="image-title-wrap">
+                                          <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
+                                        </div>
+                                      </div>                                                                    
+                                    <div>
+                                        <br><br>                        
+                                        <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                            <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                            <span id="payment-button-amount">Safe Upload</span>
+                                            <span id="payment-button-sending" style="display:none;">Uploading…</span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end modal large -->
+    <!-- END MAIN CONTENT-->
+    <!-- END PAGE CONTAINER-->
+    </div>
+    </div>
+
+    <script>
+        if(document.cookie == false) {
+            window.location.href = "http://localhost:3001/login"
+        }
+        else{
+            var value = document.cookie.split(".")[1]
+            var name = atob(value)
+            var name1 = JSON.parse(name)
+            var uname = name1['email']
+            document.getElementById('email').innerHTML = `<span id="email">${uname}</span>`
+
+            function delete_cookie() {
+                document.cookie = document.cookie +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+            }
+        }
+
+    </script>
+
+
+    <%- include('common/footer.ejs') %>
